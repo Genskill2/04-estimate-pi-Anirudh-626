@@ -17,7 +17,6 @@ int main(void) {
   
   pi0 = mc_pi(25000);
   pi1 = mc_pi(25000);
-  printf("%f %f\n", pi0, pi1);
   
   if (pi0 == pi1) {
       printf("Two separate estimates of pi are exactly the same. This is unlikely.\n");
@@ -37,6 +36,21 @@ int main(void) {
       abort();
     }
   }
+}
+
+float mc_pi(int iter){
+	int points_in_circle=0;
+	float x,y;
+	for(int i=0;i<iter;i++){
+		x=frandom();
+		y=frandom();
+		float dist=sqrt(pow(x,2)+pow(y,2));
+		if(dist<=1){
+			points_in_circle+=1;
+		}
+	}
+	float pi=(float)points_in_circle/(float)iter;
+	return 4*pi;
 }
 
 
