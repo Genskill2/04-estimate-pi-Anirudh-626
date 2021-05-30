@@ -29,6 +29,5 @@ float wallis_pi(int iter){
 	for(int i=1;i<=iter;i++){
 		pi*=(float)(4*pow(i,2))/(4*pow(i,2)-1);
 	}
-	printf("%f %d\n",2*pi,iter);
 	return 2*pi;
 }
